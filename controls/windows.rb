@@ -1,4 +1,6 @@
-return unless node['platform_family'] == 'windows'
+if ! platform?('windows')
+  return
+end
 
 describe service('DHCP Client') do
   it { should be_installed }
